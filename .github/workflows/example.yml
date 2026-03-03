@@ -1,0 +1,33 @@
+---
+name: coreboot build
+on:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  # Example of building coreboot
+  build-coreboot-example:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          submodules: 'recursive'
+
+        # ANCHOR: CorebootExample
+      - name: firmware-action
+        uses: 9elements/firmware-action@v0.19.5
+        id: firmware
+        with:
+          config: 'coreboot-example.json'
+          target: 'coreboot-example'
+          enable-cache: 'true'
+          auto-upload-artifacts: 'true'
+
+      - name: Use artifact info
+        run: |
+          echo "Artifact name: ${{ steps.firmware.outputs.artifact-name }}"
+          echo "Download from: ${{ steps.firmware.outputs.artifact-url }}"
+        # ANCHOR_END: CorebootExample
