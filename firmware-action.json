@@ -1,11 +1,24 @@
 {
-  "target": "dell/optiplex_7010",
-  "arch": "x86",
-  "defconfig_path": "dell_7010_defconfig",
-  "blobs": {
+  "coreboot": {
+    "coreboot-7010": {
+      "depends": null,
+      "sdk_url": "ghcr.io/9elements/firmware-action/coreboot_4.19:main",
+      "repo_path": "coreboot/",
+      "defconfig_path": "dell_7010_defconfig",
+      "output_dir": "output-coreboot-7010/",
+      "container_output_dirs": null,
+      "container_output_files": [
+        "build/coreboot.rom",
+        "defconfig"
+      ],
+    "blobs": {
     "descriptor": "blobs/descriptor.bin",
     "me": "blobs/me.bin",
     "gbe": "blobs/gbe.bin"
-  },
-  "payload": "seabios"
+    },
+      "container_input_dir": "inputs/",
+      "input_dirs": null,
+      "input_files": null
+    }
+  }
 }
