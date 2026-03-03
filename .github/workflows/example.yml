@@ -22,7 +22,7 @@ jobs:
         id: firmware
         with:
           config: 'firmware-action.json'
-          target: 'coreboot-example'
+          target: 'coreboot-7010'
           enable-cache: 'true'
           auto-upload-artifacts: 'true'
 
